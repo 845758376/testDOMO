@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>极客</title>
+    <meta charset="UTF-8" />
+    <meta name="author" content="cth" />
+    <meta name="keywords" content="贸小七 - 线上参展推荐展销工具SAAS平台 - 广交会使用入口" />
+    <meta name="description" content="贸小七 - 线上参展推荐展销工具SAAS平台 - 广交会使用入口" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <!--加载图-->
+        <div class="spin-container">
+            <div class="spinner">
+                <div class="spinner-container container1">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container2">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container3">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button @click="excelDowm">Excel下载</button>
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">提交名单</div>
+              
+                <!-- Table -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                          <th>编号</th> 
+                          <th>公司</th>
+                          <th>姓名</th>
+                          <th>手机</th>
+                          <th>邮箱</th>
+                          <th>职业（选填）</th>
+                          <th>时间</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr  
+                            v-for="(list,index) in datalist" :key='index'
+                            v-show="(index+1)>((pindex-1)*pagesize)&&(index+1)<=(pindex*pagesize)"
+                        >
+                          <th scope="row">{{list.id}}</th>
+                          <td>{{list.company}}</td>
+                          <td>{{list.name}}</td>
+                          <td>{{list.telephone}}</td>
+                          <td>{{list.email}}</td>
+                          <td>{{list.position?list.position:'无'}}</td>
+                          <td>{{list.createdTime}}</td>
+                        </tr>
+                      </tbody>
+                </table>
+                <div style="width: 100%;text-align: center;">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                          <li :class="pindex==1?'disabled':''"  @click='upData()'>
+                            <a href="#" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                            </a>
+                          </li>
+                          <li :class="pindex==index?'active':''" v-for='index in pageAllnum' @click='goData(index)'>
+                              <a href="#">{{index}}</a>
+                          </li>
+                          <li :class="pindex==pageAllnum?'disabled':''"  @click='downData()'>
+                            <a aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                </div>
+
+              </div>
+
+        </div>
+    </div>
+
+</body>
+<script src="./js/jquery-min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/vue.js"></script>
+<script src="./js/jquery-table2excel.js"></script>
+<script type="text/javascript">
+    // getData()
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                visible: false,
+                datalist: [],
+                pindex:1,
+                dataAllnum:null,
+                pageAllnum:null,
+                pagesize:15
+            }
+        },
+        mounted() {
+            this.getData(1)
+        },
+        methods: {
+            excelDowm(){
+                $(".table").table2excel({  
+                exclude: ".noExl",  
+                name: "Excel Document Name",  
+                filename: "提交名单",  
+                exclude_img: true,  
+                exclude_links: true,  
+                exclude_inputs: true  
+                });  
+            },
+            goData(index){
+                console.log(index)
+                this.pindex=index
+            },
+            upData(){
+                this.pindex=this.pindex-1
+            },
+            downData(){
+                this.pindex=this.pindex+1
+            },
+            getData() {
+                var that=this
+                var data = {
+                    "page": 1,
+                    "pagesize": 100000
+                }
+                $.ajax({
+                    type: "post",
+                    url: 'https://cloudapi.jkyingxiao.com/base/downloadList',
+                    data: JSON.stringify(data),
+                    success: function (str) {
+                        // $(".spin-container").hide();
+                        that.datalist = str.data.list
+                        console.log(that.datalist)
+                        $.each(that.datalist,function(k,v){
+                            var timestamp4 = new Date(Number(v.createdTime)*1000);//直接用 new Date(时间戳) 格式转化获得当前时间
+                            console.log(timestamp4);
+                            timestamp4 = timestamp4.toLocaleDateString().replace(/\//g, "-") + " " + timestamp4.toTimeString().substr(0, 8); //再利用拼接正则等手段转化为yyyy-MM-dd hh:mm:ss 格式
+                            that.datalist[k]['createdTime']=timestamp4
+                        })
+                        that.dataAllnum=that.datalist.length
+                        that.pageAllnum=Math.ceil(that.datalist.length/that.pagesize)
+                        console.log(that.pageAllnum)
+                    },
+                })
+            }
+        },
+    })
+</script>
+
+</html>

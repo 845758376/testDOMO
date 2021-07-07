@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    <title>Document</title>
+    <!-- <link type="" href="./common.css"> -->
+</head>
+
+<body>
+    <div class="body-content">
+            <div style="width: 1rem;height:100%;background:#000000;">极客视频云站3.0</div>
+            <div style="width: 1rem;height:100%;background:#4545e7;">5G时代视频直播电商系统</div>
+            <div style="width: 7.5rem;height:100%;background:#d63f3f;">打造企业品牌全球极速营销专属平台</div>
+    <!-- <div class="banner-H5">
+        <div class="banner-content">
+            <div class="banner-left">
+                <div class="logo"><span><img src="./img/banner/极客营销.png"></span><img src="./img/banner/贸小七-logo.png">
+                </div>
+                <div class="banner-left-content">
+                    <div class="text1">极客视频云站3.0</div>
+                    <div class="text2">5G时代视频直播电商系统</div>
+                    <div class="text3">打造企业品牌全球极速营销专属平台</div>
+                </div>   
+            </div>
+            <div class="banner-right">
+                <div class="banner-video">
+                    <img src="./img/banner/340.png" class="pointer bun-video">
+                    <div class="text1">极客营销 贸小七联合出品</div>
+                </div>
+                <div class="HZFlogo"><img src="./img/banner/合作商.png"></div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+
+    </div>
+</body>
+
+<script>
+    setAdaption(7.5);
+    function setAdaption(baseFontsize) {
+        baseFontsize = baseFontsize || 7.5;
+        var docEl = document.documentElement;
+        var refresh = function() {
+            var dpr = window.devicePixelRatio,
+                deviceWidth = docEl.getBoundingClientRect().width, //获得屏幕宽度
+                deviceFontsize = deviceWidth / baseFontsize + "px"; //计算rem基准值
+            docEl.setAttribute('data-dpr', dpr);
+            docEl.style.fontSize = deviceFontsize; //设置rem基准值
+        };
+
+        window.addEventListener('pageshow', function(e) {
+            if (!e.pretersised) {
+                refresh();
+            }
+        }, false);
+        window.addEventListener('resize', function() {
+            refresh();
+        }, false);
+    }
+
+</script>
+<style>
+    html, body, div, p, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0;}
+    body{
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+    }
+    .body-content{
+        
+        font-size: 0.3rem;
+        width: 7.5rem;
+        height: 100%;
+    }   
+    /*iphone 320px*/
+    @media (min-width: 310px) {
+    html{
+        font-size: 53.3%;
+    }
+    }
+    /* 安卓 360px*/
+    @media (min-width:350px){
+    html{
+        font-size: 59.12%;
+    }
+    }
+    /*iphone6 375px*/
+    @media (min-width: 370px){
+    html{
+        font-size: 62.5%;
+    }
+    }
+    /*iphone 6plus  414px*/
+    @media (min-width: 410px) {
+    html{
+        font-size: 69%;
+    }
+
+</style>
+</html>

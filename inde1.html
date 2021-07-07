@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./css/index.css"> -->
+    <link rel="stylesheet" href="./css/swiper.min.css?version=1">
+    <link rel="stylesheet" href="./css/common-H5.css?version=1">
+
+</head>
+
+<body>
+    <script>
+        setAdaption(7.5);
+        function setAdaption(baseFontsize) {
+            baseFontsize = baseFontsize || 7.5;
+            var docEl = document.documentElement;
+            var refresh = function () {
+                var dpr = window.devicePixelRatio,
+                    deviceWidth = docEl.getBoundingClientRect().width, //获得屏幕宽度
+                    deviceFontsize = deviceWidth / baseFontsize + "px"; //计算rem基准值
+                docEl.setAttribute('data-dpr', dpr);
+                docEl.style.fontSize = deviceFontsize; //设置rem基准值
+            };
+            window.addEventListener('pageshow', function (e) {
+                if (!e.pretersised) {
+                    refresh();
+                }
+            }, false);
+            window.addEventListener('resize', function () {
+                refresh();
+            }, false);
+        }
+    </script>
+    <div class="body-content">
+        <div class="bannerH5">
+            <div class="banner-content">
+                <div class="banner-left">
+                    <div class="logo">
+                        <span style="border-right: 1px solid #ffffff;display:inline-block;width:2rem;"><img
+                                src="./img/banner/极客营销.png"></span>
+                        <span><img src="./img/banner/贸小七-logo.png"></span>
+                    </div>
+                    <div class="banner-left-content">
+                        <div class="text1">极客视频云站3.0</div>
+                        <div class="text2">5G时代视频直播电商系统</div>
+                        <div class="text3">打造企业品牌全球极速营销专属平台</div>
+                    </div>
+                </div>
+                <div class="banner-right">
+                    <div class="banner-video">
+                        <img class="banner-video-bg" src="./img/banner/pc.png">
+                        <div class="banner-video-ct">
+                            <img src="./img/banner/340.png" class="pointer bun-video">
+                            <div class="text1">极客营销 贸小七联合出品</div>
+                        </div>
+
+                    </div>
+                    <div class="HZFlogo"><img src="./img/banner/合作商.png"></div>
+                </div>
+            </div>
+        </div>
+        <div class="content1">
+            <div class="text1">极客视频云站主要为外贸企业解决的四大痛点</div>
+            <div class="text2">打造全渠道管理【新客户开发-EDM邮件营销-客户管理-AI识别】SaaS服务平台为每一家企业提供专属直播间，加速企业营销、获客</div>
+            <!-- <div class="text3">为每一家企业提供专属直播间，加速企业营销、获客</div> -->
+            <div style="position: relative;width: 100%;">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper content1-img">
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20">
+                                <div class="pointer br-d7" style="border-radius: 10px;">
+                                    <div class="itemimg">
+                                        <img src="./img/Photo/content1-1.png">
+                                    </div>
+                                    <div class="text1">找线索耗时长</div>
+                                    <div class="text2">每天用在寻找客户线索占据40%的工作时长</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20">
+                                <div class="pointer br-d7" style="border-radius: 10px;">
+                                    <div class="itemimg">
+                                        <img src="./img/Photo/content1-2.png">
+                                    </div>
+                                    <div class="text1">无法筛选优质客户线索</div>
+                                    <div class="text2">过时和无效的销售线索占80%。无法过滤优质客户</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20">
+                                <div class="pointer br-d7" style="border-radius: 10px;">
+                                    <div class="itemimg">
+                                        <img src="./img/Photo/content1-3.png">
+                                    </div>
+                                    <div class="text1">获取渠道单一</div>
+                                    <div class="text2">局限线下展会、推广宣传获客不稳定、数量少</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20 ">
+                                <div class="pointer br-d7" style="border-radius: 10px;">
+                                    <div class="itemimg">
+                                        <img src="./img/Photo/content1-4.png">
+                                    </div>
+                                    <div class="text1">无法邀约线上面谈</div>
+                                    <div class="text2">过度消耗时间在拜访客户的途中，无法及时邀约客户面谈</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+        <div class="content2">
+            <div class="text1">极客视频云站给企业带来的八大好处</div>
+            <div style="position: relative;width: 100%;">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper content2-img">
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20">
+                                <div class="pointer" style="border-radius: 10px;">
+                                    <div class="itemimg">
+                                        <img src="./img/Illustration/content2-1.png">
+                                    </div>
+                                    <div class="text1">云商铺</div>
+                                    <div class="text2">独立B2B商铺,全球直播,视频导购</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20">
+                                <div class="pointer" style="border-radius: 10px;">
+                                    <div class="itemimg">
+                                        <img src="./img/Illustration/content2-2.png">
+                                    </div>
+                                    <div class="text1">小程序</div>
+                                    <div class="text2">数据管理查询,全球直播,视频导购</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20">
+                                <div class="pointer" style="border-radius: 10px ;">
+                                    <div class="itemimg">
+                                        <img src="./img/Illustration/content2-3.png">
+                                    </div>
+                                    <div class="text1">线上直播</div>
+                                    <div class="text2">随时随地，电脑手机线上直播分享</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20 ">
+                                <div class="pointer" style="border-radius: 10px">
+                                    <div class="itemimg">
+                                        <img src="./img/Illustration/content2-4.png">
+                                    </div>
+                                    <div class="text1">客户搜索</div>
+                                    <div class="text2">主动搜索220个国家地区采购商</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20 ">
+                                <div class="pointer" style="border-radius: 10px">
+                                    <div class="itemimg">
+                                        <img src="./img/Illustration/content2-5.png">
+                                    </div>
+                                    <div class="text1">海关数据</div>
+                                    <div class="text2">5亿+提单数据,精准定位采购商</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20 ">
+                                <div class="pointer" style="border-radius: 10px">
+                                    <div class="itemimg">
+                                        <img src="./img/Illustration/content2-6.png">
+                                    </div>
+                                    <div class="text1">Al深网识别</div>
+                                    <div class="text2">分析采购商公司决策人</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20 ">
+                                <div class="pointer" style="border-radius: 10px">
+                                    <div class="itemimg">
+                                        <img src="./img/Illustration/content2-7.png">
+                                    </div>
+                                    <div class="text1">EDM邮件营销</div>
+                                    <div class="text2">大数据技术。全球机房转发</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20 ">
+                                <div class="pointer" style="border-radius: 10px">
+                                    <div class="itemimg">
+                                        <img src="./img/Illustration/content2-8.png">
+                                    </div>
+                                    <div class="text1">客户管理</div>
+                                    <div class="text2">快速转化商机为订单</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+        <div class="content3">
+            <div class="text1">极客视频云站四大特色亮点</div>
+            <div style="position: relative;width: 100%;">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper content3-img">
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20 br-box">
+                                <div class="pointer" style="border-radius: 10px;">
+                                    <div class="itemimg">
+                                        <img src="./img/Illustration/content3-1.png">
+                                    </div>
+                                    <div class="text1">高度自定义直播间</div>
+                                    <div class="text2">自定义房间号、白定义弹幕、主题</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20 br-box">
+                                <div class="pointer" style="border-radius: 10px;">
+                                    <div class="itemimg">
+                                        <img src="./img/Illustration/content3-2.png">
+                                    </div>
+                                    <div class="text1">提供超级营销工具</div>
+                                    <div class="text2">海报,邀请卡，商品展示</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20 br-box">
+                                <div class="pointer" style="border-radius: 10px ;">
+                                    <div class="itemimg">
+                                        <img src="./img/Illustration/content3-3.png">
+                                    </div>
+                                    <div class="text1">媒体推广精准要有</div>
+                                    <div class="text2">同步推荐．广泛触达。邀请活动匹配客户</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide item">
+                            <div class="mg-l-20 br-box">
+                                <div class="pointer" style="border-radius: 10px">
+                                    <div class="itemimg">
+                                        <img src="./img/Illustration/content3-4.png">
+                                    </div>
+                                    <div class="text1">内容复用高效便捷</div>
+                                    <div class="text2">回放自动录插,可回看编翘，进行二次宣传</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content4-bg">
+            <div class="case-show">
+                <div class="case-show-tit">极客视频云站案列展示</div>
+                <div class="case-show" style="position: relative;width: 100%;">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide item">
+
+                                <div class="pointer">
+                                    <div class="itemimg">
+                                        <img style="width:100%" src="./img/Photo/1.案例-珠海西默电气股份有限公司.png">
+                                    </div>
+                                    <div class="tit">珠海西默电气股份有限公司</div>
+                                    <div class="txt">通过“云商铺”为客户搭建在线培训平台，利用碎片化时间与客户交流，主要应用云商铺、直播导购等模块。</div>
+                                </div>
+
+                            </div>
+                            <div class="swiper-slide item">
+                                <div class="pointer">
+                                    <div class="itemimg">
+                                        <img style="width:100%"  src="./img/Photo/2.案例-嘉明机械股份有限公司.png">
+                                    </div>
+                                    <div class="tit">嘉明机械股份有限公司</div>
+                                    <div class="txt">嘉明机械应用视频技术开创工业机械领域务平台，应用个性化定制、直拙回放.网站嵌入等模块分京工业新科技。</div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide item">
+                                <div class="pointer">
+                                    <div class="itemimg">
+                                        <img style="width:100%"  src="./img/Photo/3.案例-海南中信化工有限公司.png">
+                                    </div>
+                                    <div class="tit">海南中信化工有限公司</div>
+                                    <div class="txt">迥过”云商铺"为提升员工的素质和业务水平，邀请专家定期直描培训，同时搭载直播回放，利用贸小七服务搭建员工学习平台。</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clientshow">
+                <div class="clientshow-tit">我们和客户一样在不断前行</div>
+                <div class="clientshow-bg">
+                    <img src="./img/Photo/map.png" alt="">
+                </div>
+
+
+                <div class="clientshow-list" style="position: relative;width: 100%;">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide item">
+
+                                <div class="pointer">
+                                    <div class="itemimg">
+                                        <img style="width: 100%;" src="./img/Photo/1.技术沉淀.png">
+                                    </div>
+                                    <div class="tit"><span style="font-size: 0.36rem">技</span>术沉淀</div>
+                                    <div class="txt">9年<span class="plus">+</span></div>
+                                </div>
+
+                            </div>
+                            <div class="swiper-slide item">
+                                <div class="pointer">
+                                    <div class="itemimg">
+                                        <img style="width: 100%;"  src="./img/Photo/2.客户覆盖.png">
+                                    </div>
+                                    <div class="tit"><span style="font-size: 0.36rem">客</span>户覆盖</div>
+                                    <div class="txt">36000<span class="plus">+</span></div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide item">
+                                <div class="pointer">
+                                    <div class="itemimg">
+                                        <img style="width: 100%;" src="./img/Photo/3.创投融资.png">
+                                    </div>
+                                    <div class="tit"><span style="font-size: 0.36rem">创</span>投融资</div>
+                                    <div class="txt">10000万<span class="plus">+</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="partner">
+                <!-- <div class="bg-logo"></div> -->
+                <div class="partner-tit">全球知名合作伙伴</div>
+                <div class="partner-cont">
+                    <div class="item">
+                        <img src="./img/logo/贸小七.png">
+                    </div>
+                    <div class="item">
+                        <img src="./img/logo/Paypal.png">
+                    </div>
+                    <div class="item">
+                        <img src="./img/logo/Facebook.png">
+                    </div>
+                    <div class="item" style="margin-right:0px ;">
+                        <img src="./img/logo/Google.png">
+                    </div>
+                </div>
+                <div class="partner-cont">
+                    <div class="item">
+                        <img src="img/logo/Bing.png">
+                    </div>
+                    <div class="item">
+                        <img src="img/logo/Linkedin.png">
+                    </div>
+                    <div class="item">
+                        <img src="img/logo/aliyun.png">
+                    </div>
+                    <div class="item" style="margin-right:0px ;">
+                        <img src="img/logo/Amazon.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--视频播放-->
+    <div class="popUpWrap video">
+        <div class="bg" onClick="hidePop()"></div>
+        <div style="width: 100%; height: 100%;">
+            <i onClick="hidePop()" class="video-close">
+                <img src="https://down.maoxiaoqi.com/home_static/images/video-close.png">
+            </i> 
+            
+            <video controls="" id="videoControl" width="7.5rem">
+                <source src="https://down.maoxiaoqi.com/jkyx/video/why_maoxiaoqi.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <a target="_blank" href="./login.html"><div class="loginBtn">即刻免费体验</div></a>
+    </div>
+</body>
+<script src="./js/jquery-min.js"></script>
+<script src="./js/vue.js"></script>
+<script src="./js/swiper.min.js?version=1"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 2,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    $(function () {
+            $(".bun-video").click(function () {
+                $(".video").show();
+                document.getElementById('videoControl').play();
+            });
+        });
+        function hidePop() {
+            $(".popUpWrap").hide();
+            document.getElementById('videoControl').pause();
+        }
+        $('.content1-img .item').hover(function () {
+            // 鼠标移入时添加hover类
+            $(this).addClass('active')
+        }, function () {
+            // 鼠标移出时移出hover类
+            $(this).removeClass('active')
+        });
+        $('.content2 .item').hover(function () {
+            // 鼠标移入时添加hover类
+            $(this).addClass('active')
+        }, function () {
+            // 鼠标移出时移出hover类
+            $(this).removeClass('active')
+        });
+        $('.content3 .item').hover(function () {
+            // 鼠标移入时添加hover类
+            $(this).addClass('active')
+        }, function () {
+            // 鼠标移出时移出hover类
+            $(this).removeClass('active')
+        });
+</script>
+<style>
+
+
+    .body-content {
+        font-size: 0.3rem;
+        width: 7.5rem;
+        height: 100%;
+    }
+
+    .logo img {
+        width: 2rem;
+        height: 0.6rem;
+    }
+
+    .bannerH5 {
+        background: url('./img/banner/bannerH5.png') no-repeat;
+        height: 8rem;
+        width: 100%;
+        background-size: contain;
+    }
+
+    .banner-content {
+        padding: 0.5rem
+    }
+
+    .logo span:first {}
+
+    .banner-left-content {
+        padding: 0.5rem
+    }
+
+    .banner-left-content .text1 {
+        font-size: .6rem;
+        font-weight: 600;
+        color: #ffffff
+    }
+
+    .banner-left-content .text2 {
+        color: #ffffff
+    }
+
+    .banner-left-content .text3 {
+        color: #ffffff
+    }
+
+    .banner-right {
+        width: 100%;
+        margin: 0 auto;
+        /* position: relative; */
+    }
+    .banner-video-bg{
+        width: 4.4rem
+    }
+    .banner-video {
+        position: relative;
+        text-align: center;
+    }
+    .banner-video-ct{
+        position: absolute;
+        top: 0.1rem;
+        left: 1.85rem;
+        width: 2.9rem;
+    }
+    .bun-video{
+        width: 2.9rem;
+    }
+    .banner-video .text1 {
+        padding-top: 0.4rem;
+        text-align: center;
+        color: #ffffff;
+        font-size: 0.2rem;
+    }
+
+    .HZFlogo {
+        width: 100%;
+        text-align: center;
+        /* position: absolute;
+        top: 3.3rem; */
+    }
+
+    .HZFlogo img {
+        width: 6rem
+
+    }
+
+    .content1 {
+        width: 7.5rem;
+        margin: 0 auto;
+        padding: .6rem 0 .4rem 0;
+    }
+
+    .content1 .text1 {
+        text-align: center;
+        color: #424242;
+        font-size: 0.34rem;
+        font-weight: 600;
+        padding-bottom: 0.1rem;
+    }
+    .content1 .br-d7 .text1 {
+        text-align: center;
+        color: #424242;
+        font-size: 0.28rem;
+        /* font-weight: 600; */
+        padding-bottom: 0.1rem;
+    }
+    .content1 .br-d7 .text2 {
+        text-align: center;
+        color:#717171;
+        font-size: 0.22rem;
+        /* font-weight: 600; */
+        padding-bottom: 0.1rem;
+    }
+    .content1 .text2 {
+        text-align: center;
+        font-size: 0.24rem;
+        color: #717171;
+        margin: 0 0.2rem;
+        line-height: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .content1 .text3 {
+        text-align: center;
+        font-size: 0.22rem;
+        color: #717171;
+        padding-bottom: 0.4rem
+    }
+
+    .content1-img {
+        /* padding: 0 .3rem; */
+    }
+
+    .content1-img .item {
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .content1-img .item img {
+        border-radius: 10px 10px 0 0;
+    }
+
+    /* .content1-img .item {
+        width: 3.75rem;
+        display: inline-block;
+    }
+
+
+    .content1-img .item img {
+        width: 100%;
+    } */
+
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .advantages {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -ms-flex-line-pack: center;
+        align-content: center;
+        border: solid 1px #e3e3e3;
+        border-radius: 5px;
+    }
+
+    .content1-img .itemimg {
+        width: 100%;
+        text-align: center;
+    }
+
+    .content1-img .itemimg img {
+        border-radius: 10px 10px 0 0;
+        width: 100%;
+    }
+    .content2{
+        background: #f2f2f2;
+        width: 7.5rem;
+        margin: 0 auto;
+        padding: .8rem 0 .6rem 0;
+    }
+    .content2 .text1 {
+        font-size: 0.34rem;
+        margin-bottom: 0.20rem;
+        color: #424242;
+        font-weight: 600;
+        text-align: center;
+    }
+    .content2 .pointer .text1 {
+        font-size: 0.28rem;
+        margin-bottom: 0.20rem;
+        color: #424242;
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    .content2 .pointer .text2 {
+        font-size: 0.20rem;
+        color: #717171;
+        margin-bottom: 0.30rem;
+        text-align: center;
+    }
+
+    .content2 .text3 {
+        text-align: center;
+        font-size: 0.18rem;
+        color: #717171;
+        padding-bottom: 0.4rem
+    }
+
+    .content2-img {
+        /* padding: 0 .3rem; */
+    }
+
+    .content2-img .item {
+        text-align: center;
+        border-radius: 10px;
+        background: #f2f2f2;
+    }
+
+    .content2-img .item img {
+        border-radius: 10px 10px 0 0;
+        
+    }
+    .content2-img .itemimg {
+        width: 100%;
+        text-align: center;
+    }
+
+    .content2-img .itemimg img {
+        border-radius: 10px 10px 0 0;
+        width: 2rem;
+    }
+    .content3{
+        /* background: #f2f2f2; */
+        width: 7.5rem;
+        margin: 0 auto;
+        padding: .8rem 0 .6rem 0;
+    }
+    .content3 .text1 {
+        font-size: 0.34rem;
+        margin-bottom: 0.20rem;
+        color: #424242;
+        font-weight: 600;
+        text-align: center;
+    }
+    .content3 .pointer .text1 {
+        font-size: 0.28rem;
+        margin-bottom: 0.20rem;
+        color: #424242;
+        font-weight: 600;
+        text-align: center;
+    }
+    .content3 .pointer .text2 {
+        font-size: 0.20rem;
+        color: #717171;
+        margin-bottom: 0.30rem;
+        text-align: center;
+    }
+
+    .content3 .text3 {
+        text-align: center;
+        font-size: 0.18rem;
+        color: #717171;
+        padding-bottom: 0.4rem
+    }
+
+    .content3-img {
+        /* padding: 0 .3rem; */
+    }
+
+    .content3-img .item {
+        text-align: center;
+        border-radius: 10px;
+        /* background: #f2f2f2; */
+    }
+
+    .content3-img .item img {
+        border-radius: 10px 10px 0 0;
+        
+    }
+    .content3-img .itemimg {
+        width: 100%;
+        text-align: center;
+    }
+
+    .content3-img .itemimg img {
+        border-radius: 10px 10px 0 0;
+        width: 2rem;
+    }
+    .br-box{
+        padding: .4rem;
+        border: 1px solid #d7d7d7;
+        border-radius: 10px;
+        width: 2.5rem;
+        height: 3rem;
+    }
+    .popUpWrap{
+    display: none;
+}
+.popUpWrap .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,.6);
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+.popUpWrap.video .video-close{
+    position: fixed;
+    z-index: 1002;
+    top: 50%;
+    margin-top: -2.3rem;
+    left: 50%;
+    margin-left: 3.2rem;
+    cursor: pointer;
+}
+.popUpWrap.video .video-close img{
+    width: 40px;
+}
+.popUpWrap.video video{
+    width: 7.5rem;
+    height: 5rem;
+    object-fit: fill;
+    position: fixed;
+    margin: 0 auto;
+    z-index: 1001;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 50%;
+    margin-top: -2.42rem;
+}
+.loginBtn{
+    width: 1.6rem;
+    height: 0.44rem;
+    border-radius: 0.22rem;
+    background: linear-gradient(to left,#ff7e0f,#ff5f2a);
+    text-align: center;
+    font-size: 0.2rem;
+    line-height: 0.4rem;
+    position: fixed;
+    right: 1px;
+    color:#ffffff;
+    cursor: pointer;
+    top: 47%;
+    z-index: 100;
+}
+.content4-bg {
+        width: 100%;
+        background: linear-gradient(to left, #fda70b, #f97c1d);
+    }
+    .content4-bg .swiper-wrapper {
+        padding-left: .3rem;
+    }
+
+    .case-show {}
+
+    .case-show-tit {
+        font-size: 0.34rem;
+        font-weight: bold;
+        color: white;
+        padding-top: 0.7rem;
+        padding-bottom: .5rem;
+        text-align: center;
+    }
+    .case-show .case-show .item {
+        background-color: transparent;
+    }
+    .case-show .case-show .item .pointer {
+        width: 3.8rem;
+        /* height: 5rem; */
+        box-shadow: 0rem 0rem 0.27rem 0.02rem rgba(199, 110, 10, 0.41);
+        padding-bottom: .42rem;
+        text-align: left;
+        overflow: hidden;
+        border-radius: 0.1rem;
+        background-color: #ffe300;
+        margin-right: .3rem;
+    }
+
+    .case-show .case-show img {
+        /* width: 3.8rem; */
+        /* height: 3.2rem; */
+        border-radius: 0.1rem 0.1rem 0rem
+    }
+
+    .case-show .case-show .tit {
+        font-size: 0.2rem;
+        margin-top: 0.28rem;
+        margin-left: .28rem;
+    }
+
+    .case-show .case-show .txt {
+        font-size: 0.16rem;
+        margin-top: .16rem;
+        margin-left: .26rem;
+        line-height: 0.26rem;
+    }
+
+    .clientshow {}
+
+    .clientshow-tit {
+        font-family: "MicrosoftYaHei";
+        font-size: 0.4rem;
+        color: white;
+        padding-top: 1.2rem;
+        padding-left: 0.82rem;
+    }
+
+    .clientshow-bg {
+        padding-bottom: 1.1rem;
+    }
+
+    .clientshow-bg img {
+        width: 100%;
+    }
+
+    .clientshow-list .swiper-slide {
+        background: transparent;
+    }
+    .clientshow-list .pointer {
+        margin-right: .3rem;
+    }
+
+    .clientshow-list img {
+        border-radius: 0.1rem;
+    }
+
+    .clientshow-list .tit {
+        font-size: 0.24rem;
+        font-weight: bold;
+        color: white;
+        margin-top: .2rem;
+    }
+
+    .clientshow-list .txt {
+        font-size: 0.56rem;
+        font-weight: bold;
+        color: white;
+    }
+    .clientshow-list .plus {
+        vertical-align: super;
+    }
+
+    .partner {
+        /* background: linear-gradient(to left,#fda70b,#f97c1d); */
+        background: url('./img/logo/100.png') top center repeat;
+        background-size: cover;
+        -webkit-animation: scrollmap 20000ms linear infinite;
+        animation: scrollmap 20000ms linear infinite;
+        padding-bottom: .76rem;
+        margin-top: 0.7rem;
+    }
+    @keyframes scrollmap {
+        from {background-position-y: top;}
+        to {background-position-y: bottom;}
+    }
+
+    .partner-tit {
+        font-size: 0.3rem;
+        font-weight: bold;
+        color: white;
+        padding-top: 0.7rem;
+        text-align: center;
+    }
+
+    .partner-cont {
+        display: flex;
+        justify-content: space-around;
+        padding-top: .22rem;
+    }
+
+    .partner-cont .item {
+        width: 1.57rem;
+        height: 0.7rem;
+        box-shadow: 0rem 0rem 0.17rem 0.01rem rgba(199, 110, 10, 0.5);
+        border-radius: 0.1rem;
+    }
+
+    .partner-cont .item img {
+        width: 100%;
+        height: 100%;
+    }
+
+</style>
+
+</html>

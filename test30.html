@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <title>Simple Map</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <!-- jsFiddle will insert css and js -->
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+  <script
+  src="http://testproxymap.maoxiaoqi.com/maps/api/js?key=AIzaSyCgx43DpPQVU3FE-2-wbCRUL5sqshFQNAI&callback=initMap&libraries=&v=weekly"
+    async></script>
+    
+    
+    <!-- http://cloudfront.sxs.com.cn/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=&v=weekly -->
+  <script>
+    let map;
+    let markers = []
+
+    function initMap() {
+      const myLatlng = {
+        // lat: 39.547981479742795,-25.482951, 1933.066406
+        // lng: -101.21512736017814
+        lat: -25.482951, 
+        lng: 1933.066406
+      };
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
+        center: myLatlng,
+      });
+      // Create the initial InfoWindow.
+      let infoWindow = new google.maps.InfoWindow({
+        content: "点击地图，选择地点",
+        position: myLatlng,
+      });
+      // new google.maps.Marker({
+      //   position: myLatlng,
+      //   map,
+      // });
+      markers = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+        });
+      infoWindow.open(map);
+      // Configure the click listener.
+      map.addListener("click", (mapsMouseEvent) => {
+        // Close the current InfoWindow.
+        infoWindow.close();
+        // Create a new InfoWindow.
+        // infoWindow = new google.maps.InfoWindow({
+        //   position: mapsMouseEvent.latLng,
+        // });
+        // infoWindow.setContent(
+        //   JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
+        // );
+        // infoWindow.open(map);
+        console.log(mapsMouseEvent.latLng, mapsMouseEvent.latLng.toJSON())
+        map.panTo(mapsMouseEvent.latLng.toJSON());
+        // new google.maps.Marker({
+        //   position: mapsMouseEvent.latLng.toJSON(),
+        //   map
+        // });
+        if (markers && markers.setMap) {
+          markers.setMap(null);
+        }
+        markers = new google.maps.Marker({
+          position: mapsMouseEvent.latLng.toJSON(),
+          map: map,
+        });
+        console.log(markers)
+
+      });
+    }
+
+
+    //  var map;
+    //  var markers = [];
+    //  function initialize() {
+    //   var myLatlng = new google.maps.LatLng(44.5403, -78.5463);
+    //   var mapOptions = {
+    //     zoom: 4,
+    //     center: myLatlng
+    //   }
+    //   var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+    //     google.maps.event.addListener(map, 'click', function(event) {
+    //         addMarker(event.latLng);
+    //       });
+    //     // add marker to positon
+    //     function addMarker(location) {
+    //          var marker = new google.maps.Marker({
+    //                 position: location,
+    //                 map: map
+    //             });
+    //     google.maps.event.addListener(marker, 'click', function(event) {
+    //         this.setMap(null);
+    //         });
+
+    //          markers.push(marker);
+    //     }
+    //     // Sets the map on all markers in the array.
+    //     function setAllMap(map) {
+    //       for (var i = 0; i < markers.length; i++) {
+    //         markers[i].setMap(map);
+
+
+    //       }
+    //     }
+    //     }
+    //     google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+      height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</body>
+
+</html>

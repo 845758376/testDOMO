@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    img {
+      width: 500px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    345635发士大夫12312
+    <!-- <img src="https://mxq-crm-files.oss-cn-hangzhou.aliyuncs.com/templet_images/51850/53706/F479829.jpg?md5=0d191cd9d75356716bfd89b7ea78ce40"></img> -->
+    131231
+</div>
+
+<div id="imgsSave"></div>
+
+    <script src="./html2canvas.js"></script>
+    <script src="./js/canvasimg.js"></script>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+  <!-- <script src="./Canvas2Image.js"></script> -->
+<script>
+
+  window.onload = function() {
+    html2canvas(document.querySelector(".wrapper"), {
+      allowTaint: true,
+      useCORS: true,  
+    }
+
+    ).then(canvas => {
+      document.body.appendChild(canvas)
+      setTimeout(() => {
+        canvasToImage(canvas);
+      }, 1000);
+    });
+  }
+  function canvasToImage(canvas) {
+    // document.getElementById("image").setAttribute('src',canvas.toDataURL("image/png"))
+    var context = canvas.getContext('2d');
+    context.mozImageSmoothingEnabled = false;
+    context.webkitImageSmoothingEnabled = false;
+    context.msImageSmoothingEnabled = false;
+    context.imageSmoothingEnabled = false;
+    console.log(context,'截图')
+    var img = Canvas2Image.convertToImage(canvas, canvas.width, canvas.height, 'png');
+    img.setAttribute("crossOrigin",'Anonymous')
+    $('#imgsSave').append(img);
+
+
+
+//第二
+    // var canvas = document.getElementById('canvasOne');
+    // var context = canvas.getContext('2d');
+    // context.mozImageSmoothingEnabled = false;
+    // context.webkitImageSmoothingEnabled = false;
+    // context.msImageSmoothingEnabled = false;
+    // context.imageSmoothingEnabled = false;
+    // // context.fillStyle = 'red';
+    // // context.fillRect(0, 0, canvas.width, canvas.height);
+    // var img = new Image();
+    // //设置图片跨域访问
+    // img.setAttribute('crossOrigin', 'anonymous');
+    // img.onload = function () {
+    //     //画图
+    //     context.drawImage(img, 0, 0, img.width, img.height);
+    //     var data = canvas.toDataURL('image/jpeg');
+    //     console.log(data)
+    //     // alert(data);
+    //     $('#imgsSave').append(data);
+    // }
+
+}
+
+
+</script>
+
+<style>
+    #imgsSave img{
+        width: 600px;
+    }
+    .wrapper{
+        width: 500px;
+    }
+    
+</style>
+</body>
+</html>

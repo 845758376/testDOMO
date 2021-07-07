@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    img {
+      width: 500px;
+    }
+  </style>
+</head>
+<body>
+  <div>收益：<input id="data1"></div>
+  <div>开始日期：<input id="data2"></div>
+  <div>结束日期：<input id="data3"></div>
+  <div id="data4"></div>
+  <button>计算</button>
+  <div class="wrapper">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533212152031&di=f26250570f7d5f2e7895c7c13e96d61a&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F267f9e2f07082838304837cfb499a9014d08f1a0.jpg"></img>
+  </div>
+</body>
+
+
+
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="./html2canvas.js"></script>
+<script src="./Canvas2Image.js"></script>
+<script type="module">
+  var now=getnowtime()
+  console.log(now)
+  //获取当前日期
+  function getnowtime() {
+      var nowtime = new Date();
+      var year = nowtime.getFullYear();
+      var month = (nowtime.getMonth() + 1);
+      var day = (nowtime.getDate());
+      var datetime = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day);
+      return datetime;
+  }
+  //计算日期的方法
+  function gettime(days) {
+      var dd = new Date();
+      dd.setDate(dd.getDate() + days); //获取days天后的日期
+      var y = dd.getFullYear();
+      var m = (dd.getMonth() + 1) < 10 ? "0" + (dd.getMonth() + 1) : (dd.getMonth() + 1); //获取当前月份的日期，不足10补0
+      var d = dd.getDate() < 10 ? "0" + dd.getDate() : dd.getDate(); //获取当前几号，不足10补0
+      return y + "-" + m + "-" + d;
+  }
+  function DateDiff(sDate1, sDate2) {
+    var aDate, oDate1, oDate2, iDays;
+    aDate = sDate1.split("-");
+    oDate1 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0]);  //转换为yyyy-MM-dd格式
+    aDate = sDate2.split("-");
+    oDate2 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0]);
+    iDays = parseInt(Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24); //把相差的毫秒数转换为天数
+    return iDays;  //返回相差天数
+  }
+  // 调用
+  function btnClick(){
+    var now=getnowtime()
+    var stime=$('#data2').val()
+    if($('#data3').val()){
+      var etime=$('#data3').val()
+    }else{
+      var etime=now
+    }
+    let and = DateDiff(stime,etime)
+    console.log(and,"天")
+    var money=$('#data1').val()
+    console.log(money/and)
+  }
+  $("button").click(function(){
+    btnClick()
+  });
+  
+  // import Canvas2Image from './Canvas2Image.js';
+  // $(document).ready(function(){
+  
+  //   html2canvas(document.querySelector(".wrapper"), {
+  //       allowTaint: true,
+  //       useCORS: true,
+  //     }).then(canvas => {
+  //       document.body.appendChild(canvas)
+  //       var img_data1 = Canvas2Image.saveAsPNG(oCanvas, true).getAttribute('src');
+  //       console.log(img_data1)
+  //       // var canvas=document.getElementById("canvas"),//获取canvas
+  //       // ctx = canvas.getContext("2d"), //对应的CanvasRenderingContext2D对象(画笔)
+  //       // img = new Image(),//创建新的图片对象
+  //       // base64 = '' ;//base64 
+  //       // img.src = 'http://www.xxxx.png';img.setAttribute("crossOrigin",'Anonymous')
+        
+  //       img.onload = function(){//图片加载完，再draw 和 toDataURL
+  //           ctx.drawImage(img,0,0);    
+  //           base64 = canvas.toDataURL("image/png"); 
+  //       };
+  //     });
+  
+  // })
+    // window.onload = function() {
+  
+    // }
+    // function canvas2Image(canvas, width, height) {
+    //   const retCanvas = document.createElement('canvas');
+    //   const retCtx = retCanvas.getContext('2d');
+    //   retCanvas.width = width;
+    //   retCanvas.height = height;
+    //   retCtx.drawImage(canvas, 0, 0, width, height, 0, 0, width, height);
+    //   const img = document.createElement('img');
+    //   img.src = retCanvas.toDataURL('image/jpeg');  // 可以根据需要更改格式
+    //   parent.mapPhoto(img.src);
+    // }
+  
+  </script>
+</html>

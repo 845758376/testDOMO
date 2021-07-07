@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+    <style>
+        .input {
+            width: 500px
+        }
+    </style>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div>域名：<input class="input" /></div>
+    <div>通道(数字)：<input class="input-num" /></div>
+    <button class="btn">域名点击</button>
+    <button class="btn-num">通道点击</button>
+    <button value="导出" onclick="Export();">导出</button>
+    <table class="table" id="exceltable">
+        <tr class="success">
+            <td>编号</td>
+            <td>域名(通道)</td>
+            <td>失败</td>
+            <td>失败时间</td>
+            <td>发送</td>
+            <td>发送时间</td>
+            <td>成功</td>
+            <td>成功时间</td>
+        </tr>
+        <!-- <tr class="success">
+                <td cl>1</td>
+                <td>TB - Monthly</td>
+                <td>01/04/2012</td>
+                <td>Approved</td>
+            </tr> -->
+    </table>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/excel.js"></script>
+    <script type="text/javascript">
+        function Export() {
+            $("#exceltable").table2excel({
+                // 不被导出的表格行的CSS class类
+                exclude: ".noExl",
+                // 导出的Excel文档的名称
+                name: "表格-" + new Date().getTime(),
+                // Excel文件的名称
+                filename: "表格-" + new Date().getTime() + ".xls",
+                bootstrap: false
+            });
+        }
+        $(function () {
+            $('.btn').click(function () {
+                console.log($('.input').val())
+                var arr = []
+                arr = $('.input').val().split(",")
+                console.log(arr)
+                $.each(arr, function (k, v) {
+                    setTimeout(function () {
+                        godata(v, 'domain')
+                    }, (k + 1) * 10000)
+                })
+            })
+        })
+        $(function () {
+            $('.btn-num').click(function () {
+                console.log($('.input-num').val())
+                var numData = Number($('.input-num').val())
+                arr=[]
+                for (var i = 0;i <= numData; i++) {
+                    arr.push(i)
+                }
+                console.log(arr)
+                $.each(arr,function(k,v){
+                    setTimeout(function () {
+                        godata(k, 'num')
+                    }, (k + 1) * 1000)
+                })
+            })
+        })
+
+        function godata(domain, type) {
+
+            var data = {
+                "module": "manage",
+                "action": "getCountInfo",
+                "data": {}
+            }
+            if (type == "domain") {
+                data.data['domain'] = domain
+            }
+            if (type == "num") {
+                data.data['fsyjtd_num'] = domain
+            }
+            console.log(data)
+            $.ajax({
+                type: "post",
+                url: 'http://crm.sxs.com.cn/myedm/webapi.php?_ver=1.1',
+                data: JSON.stringify(data),
+                success: function (str) {
+                    var json = JSON.parse(str);
+                    console.log(json.data)
+                    var html = "";
+                    $.each(json.data, function (k, v) {
+                        if(k!='ip_count'&&k!='fsyjtd_count'){
+                            html += '<tr class="shopBox">' +
+                            '<td>' + k + '</td>' +
+                            '<td>' + domain + '</td>' +
+                            '<td>' + v.fail + '</td>' +
+                            '<td>' + v.fail_ldt + '</td>' +
+                            '<td>' + v.send + '</td>' +
+                            '<td>' + v.send_ldt + '</td>' +
+                            '<td>' + v.succeed + '</td>' +
+                            '<td>' + v.succeed_ldt + '</td>' +
+                            '</tr>'
+                        }
+                    })
+                    $(".table").append(html);
+                },
+            })
+        }
+    </script>
+</body>
+
+</html>

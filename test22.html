@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>js</title>
+</head>
+
+<body>
+    <script src="./client/js/jquery-min.js"></script>
+    <script>
+        function is_weixin() {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        if (is_weixin()) {
+            document.write('微信')
+        } else {
+            document.write('非微信')
+        }
+        var data={
+            "module":"system",
+            "action":"pwd2md5",
+            "mm":"123456"
+        }
+        
+        $.ajax({
+            type: "post",
+            url: "https://apptestv80jnhovz9.maoxiaoqi.com/request.php",
+            data: JSON.stringify(data),
+            success: function (str) {
+                var json = formatasjson(str);
+                if (json.state) {
+                    document.write(JSON.stringify(json))
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

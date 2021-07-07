@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Table</title>
+<style>
+	table{
+		table-layout: fixed;/*使用fixed实现th固定宽度*/
+		width:100%;/*在使用fixed的时候，必须指定width，否则还是自适应宽度*/
+		border-spacing:0;
+	}
+	th{
+		background:#888;
+	}
+	th,td{
+		border:1px solid #333; /*一定要同时有border和outline不然滚动会看着不协调*/
+		outline: 1px solid #333;
+		background:#fff;
+	}
+</style>
+ 
+<script>
+window.onload=function(){
+	//这是外层div
+	var tableDiv = document.querySelector("#tableDiv");
+	//这是水平可滚动距离
+	var diff = tableDiv.scrollWidth - tableDiv.clientWidth;
+	//获取最后一列单元格，在这个例子里，最后一列是第5列
+	var opts = tableDiv.querySelectorAll("tr td:nth-child(5),tr th:nth-child(5)");
+	//获取前两列单元格
+	var names = tableDiv.querySelectorAll("tr td:nth-child(1),tr th:nth-child(1),tr td:nth-child(2),tr th:nth-child(2)");
+	
+	//如果水平有滚动条，那一开始就需要让最后一列偏移
+	if(diff > 0){
+		for(var i =0;i< opts.length; i++){
+			opts[i].style.transform = "translateX(-"+diff+"px)";
+		}
+	}
+	
+	/*******固定的逻辑基本就下面这些*********/
+	var scroll_x = 0;
+	var scroll_y = 0;
+	tableDiv.addEventListener("scroll",function(e){
+		//垂直滚动固定头
+		if(this.scrollTop != scroll_y){
+			scroll_y = this.scrollTop;
+			this.querySelector("thead").style.transform="translate3d(0,"+this.scrollTop+"px,.1px)";
+		}
+		//水平滚动固定前两列和最后一列
+		if(this.scrollLeft != scroll_x){
+			scroll_x = this.scrollLeft;
+			for(var i =0;i< opts.length; i++){
+				opts[i].style.transform = "translateX(-"+(diff-scroll_x)+"px)";
+			}
+			for(var i =0; i< names.length ;i++){
+				names[i].style.transform = "translateX("+scroll_x+"px)";
+			}
+		}
+	})
+}
+</script>
+</head>
+<body>
+ 
+	<p style="text-align:center;">演示固定了头、第一列 、第二列以及最后一列</p>
+<div id="tableDiv" style="width:500px; height:400px;overflow:auto;margin:0 auto;margin-top:50px;">
+	<!-- table必须加transform这个样式，否则垂直滚动的时候，会有问题 -->
+	<table style="transform-style:preserve-3d;">
+		<thead>
+			<tr>
+				<th style="width:50px">Num</th>
+				<th style="width:120px">Name</th>
+				<th style="width:100px">Age</th>
+				<th style="width:300px">Address</th>
+				<th style="width:50px">Opt</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>张三</td>
+				<td>10</td>
+				<td>这是一条很长很长很长很长很长很长很长很长的文字</td>
+				<td>
+					<a href="">编辑</a>
+				</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>张三1</td>
+				<td>10</td>
+				<td>这是一条很长很长很长很长很长很长很长很长的文字</td>
+				<td>
+					<a href="">编辑</a>
+				</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>张三3</td>
+				<td>10</td>
+				<td>这是一条很长很长很长很长很长很长很长很长的文字</td>
+				<td>
+					<a href="">编辑</a>
+				</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>张三4</td>
+				<td>10</td>
+				<td>这是一条很长很长很长很长很长很长很长很长的文字</td>
+				<td>
+					<a href="">编辑</a>
+				</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>张三5</td>
+				<td>10</td>
+				<td>这是一条很长很长很长很长很长很长很长很长的文字</td>
+				<td>
+					<a href="">编辑</a>
+				</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>张三6</td>
+				<td>10</td>
+				<td>这是一条很长很长很长很长很长很长很长很长的文字</td>
+				<td>
+					<a href="">编辑</a>
+				</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>张三7</td>
+				<td>10</td>
+				<td>这是一条很长很长很长很长很长很长很长很长的文字</td>
+				<td>
+					<a href="">编辑</a>
+				</td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>张三8</td>
+				<td>10</td>
+				<td>这是一条很长很长很长很长很长很长很长很长的文字</td>
+				<td>
+					<a href="">编辑</a>
+				</td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>张三9</td>
+				<td>10</td>
+				<td>这是一条很长很长很长很长很长很长很长很长的文字</td>
+				<td>
+					<a href="">编辑</a>
+				</td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>张三10</td>
+				<td>10</td>
+				<td>这是一条很长很长很长很长很长很长很长很长的文字</td>
+				<td>
+					<a href="">编辑</a>
+				</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>张三11</td>
+				<td>10</td>
+				<td>这是一条很长很长很长很长很长很长很长很长的文字</td>
+				<td>
+					<a href="">编辑</a>
+				</td>
+			</tr>
+			<tr>
+				<td>12</td>
+				<td>张三12</td>
+				<td>10</td>
+				<td>这是一条很长很长很长很长很长很长很长很长的文字</td>
+				<td>
+					<a href="">编辑</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

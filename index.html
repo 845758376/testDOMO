@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    img {
+      width: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    我是初始文字
+    <!-- <img src="./img/banner/100.png"></img> -->
+    <!-- <img crossOrigin="Anonymous" src="https://mxq-crm-files.oss-cn-hangzhou.aliyuncs.com/templet_images/56168/64080/F515237.png?md5=fab4aa66120f6cbbbd9b17e28dcf10e6"> -->
+    <!-- 131231 -->
+  </div>
+
+  <div id="imgsSave"></div>
+  <button id="btnsavaImg">保存图片到本地</button>
+  <!-- <script src="./Canvas2Image.js"></script> -->
+  
+  
+  <script src="./html2canvas.js"></script>
+  <script src="./js/canvasimg.js"></script>
+  <script src="./js/jquery.min.js"></script>
+
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script>
+    var imgBase64=''
+    window.onload = function () {
+      html2canvas(document.querySelector(".wrapper"), {
+          allowTaint: true,
+          useCORS: true,
+        }
+
+      ).then(canvas => {
+        document.body.appendChild(canvas)
+        // var url = canvas.toDataURL(); 
+        // var img = new Image();
+        // img.src = url;
+        // $('.imgsSave').append(img);   
+        setTimeout(() => {
+          canvasToImage(canvas);
+        }, 1000);
+      });
+    }
+
+    function canvasToImage(canvas) {
+      // document.getElementById("image").setAttribute('src',canvas.toDataURL("image/png"))
+      // var image = new Image();
+      // image.src = canvas.toDataURL("image/png");
+      // return image
+      var context = canvas.getContext('2d');
+      context.mozImageSmoothingEnabled = false;
+      context.webkitImageSmoothingEnabled = false;
+      context.msImageSmoothingEnabled = false;
+      context.imageSmoothingEnabled = false;
+      console.log(context, '截图')
+      var img = Canvas2Image.convertToImage(canvas, canvas.width, canvas.height, 'png');
+      img.setAttribute("crossOrigin",'Anonymous')
+      $('#imgsSave').append(img);
+          html2canvas(document.body).then(function(canvas) {
+          var base64 = canvas.toDataURL("image/png");
+          imgBase64=base64
+          console.log(base64);//生成本地base64图片
+      });
+
+
+
+      //第二
+      // var canvas = document.getElementById('canvasOne');
+      // var context = canvas.getContext('2d');
+      // context.mozImageSmoothingEnabled = false;
+      // context.webkitImageSmoothingEnabled = false;
+      // context.msImageSmoothingEnabled = false;
+      // context.imageSmoothingEnabled = false;
+      // // context.fillStyle = 'red';
+      // // context.fillRect(0, 0, canvas.width, canvas.height);
+      // var img = new Image();
+      // //设置图片跨域访问
+      // img.setAttribute('crossOrigin', 'anonymous');
+      // img.onload = function () {
+      //     //画图
+      //     context.drawImage(img, 0, 0, img.width, img.height);
+      //     var data = canvas.toDataURL('image/jpeg');
+      //     console.log(data)
+      //     // alert(data);
+      //     $('#imgsSave').append(data);
+      // }
+
+      // 第三
+      // var src="https://mxq-crm-files.oss-cn-hangzhou.aliyuncs.com/templet_images/51850/53706/F479829.jpg?md5=0d191cd9d75356716bfd89b7ea78ce40"
+      // let image = new Image();
+      // image.src = src + '?v=' + Math.random();
+      // image.crossOrigin = 'Anonymous'; // 支持跨域图片
+
+      // image.onload = function() {
+      //     // let canvas = document.createElement('canvas');
+      //     canvas.width = image.width;
+      //     canvas.height = image.height;
+      //     let ctx = canvas.getContext('2d');
+      //     ctx.drawImage(image, 0, 0, image.width, image.height);
+      //     canvas.toDataURL('image/png'); // 可选其他值 image/jpeg
+      // };
+
+
+      // var b64;
+      // try {
+      //   b64 = canvas.toDataURL("image/png");
+      // } catch (err) {
+      //   console.log(err);
+      //   alert(err);
+      // }
+
+      // var img = new Image();
+      // img.src = b64;
+      // var $img = $(img).addClass('canvas').css({
+      //   'opacity': 0.001,
+      //   'width': '100%'
+      // });
+      // $('#imgsSave').append($img);
+
+    }
+    $('#btnsavaImg').click(function (){
+      console.log('1')
+      downloadFile(imgBase64,'lalala')
+    })
+    // function downloadimg(){
+    //   console.log('1')
+    //   // downloadFile(imgBase64,'lalala')
+    // }
+    function downloadFile(content, fileName) { //下载base64图片
+    var base64ToBlob = function(code) {
+        let parts = code.split(';base64,');
+        let contentType = parts[0].split(':')[1];
+        let raw = window.atob(parts[1]);
+        let rawLength = raw.length;
+        let uInt8Array = new Uint8Array(rawLength);
+        for(let i = 0; i < rawLength; ++i) {
+            uInt8Array[i] = raw.charCodeAt(i);
+        }
+        return new Blob([uInt8Array], {
+            type: contentType
+        });
+    };
+    let aLink = document.createElement('a');
+    let blob = base64ToBlob(content); //new Blob([content]);
+    let evt = document.createEvent("HTMLEvents");
+    evt.initEvent("click", true, true); //initEvent 不加后两个参数在FF下会报错  事件类型，是否冒泡，是否阻止浏览器的默认行为
+    aLink.download = fileName;
+    aLink.href = URL.createObjectURL(blob);
+    aLink.click();
+  }
+  </script>
+
+  <style>
+    #imgsSave img {
+      width: 600px;
+    }
+
+    .wrapper {
+      width: 500px;
+    }
+  </style>
+</body>
+
+</html>

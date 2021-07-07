@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>滑动</title>
+    
+    <style type="text/css">
+        .container {
+            position: relative;
+            width: 50%;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 100%;
+            /*从底部何处开始滑动*/
+            background-color: #008CBA;
+            overflow: hidden;
+            /*内容超出弹框时不显示*/
+            width: 100%;
+            background: #ccc;
+            height: 100%;
+            transition: top 1s linear;
+            /*设置经过1s完全覆盖，缓慢均匀滑动*/
+        }
+
+        .overlay_up {
+            /*鼠标移动到该div时，发生变化*/
+            top: 0;
+            /*滑到距顶部高度为0的地方*/
+        }
+
+        .text {
+            /*文本内容样式设置*/
+            white-space: nowrap;
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            overflow: hidden;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /*文字显示位置*/
+        }
+    </style>
+</head>
+
+<body>
+    <!--下方文字缓慢上滑覆盖图片，并保持不动-->
+    <div class="container">
+        <img src="img/18607035278848161.jpg" class="image">
+        <div class="overlay">
+            <div class="text">Hello World</div>
+        </div>
+        <img src="https://mxq-crm-files.oss-cn-hangzhou.aliyuncs.com/templet_images/51944/68053/F747531.jpg?md5=8380c33e45be64d3867db5992a2bf3d8">
+    </div>
+</body>
+
+</html>
+<script>
+    window.onload = function () {
+        /*页面加载完成后执行方法*/
+        var a1 = document.getElementsByClassName("overlay")[0]; /*获取元素*/
+        a1.setAttribute("class", a1.getAttribute("class") + " overlay_up"); /*设置属性class*/
+    }
+</script>

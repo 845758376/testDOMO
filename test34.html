@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <script>
+            var arrString = 'abaaacdaabcddddfffasdvbadsd';
+            // 第一种
+            arrString.split('').reduce(function(res, cur) {
+                //若第一次出现，次数记为1， 否则 次数加1
+                console.log(res,cur)
+                res[cur] ? res[cur] ++ : res[cur] = 1
+                return res;
+            }, {})
+
+            // 第二种
+            var res={}
+            arrString.split('').forEach(function(val,key){
+                console.log(val,key)
+                res[val]?res[val] ++ : res[val] = 1
+            })
+            var res2=''
+            console.log(res)
+
+            // 看那种字符数量最多
+            res.forEach(function(val,key){
+                if(res2==''){
+                    res2=val
+                }else{
+                    if(res2<val){
+                        res2=val
+                    }
+                }
+            })
+            console.log(res2)
+            
+        </script>
+        <script src="" async defer></script>
+    </body>
+</html>

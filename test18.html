@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta content="maximum-dpr=2" name="flexible" />
+    <script src="build/flexible_css.js"></script>
+    <script src="build/flexible.js"></script>
+    <title>lib.flexible</title>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+</head>
+
+<body>
+    <style>
+        .adapter_size {
+            font-size: 12px;
+            /*设备像素比为1*/
+        }
+        [data-dpr="2"] .adapter_size {
+            font-size: 56px;
+            /*设备像素比为2*/
+        }
+        [data-dpr="3"] .adapter_size {
+            font-size: 156px;
+            /*设备像素比为3*/
+        }
+    </style>
+    <div class="adapter_size">一段测试文字</div>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+</body>
+
+</html>

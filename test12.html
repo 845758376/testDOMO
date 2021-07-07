@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/jquery-min.js"></script>
+    <!-- <script src="../scripts/Bootstrap-3.3.6/js/bootstrap.min.js"></script> -->
+</head>
+<body>
+<div class="container">
+    <img src="http://www.gongjuji.net/favicon.ico"  crossorigin="anonymous"/>
+    <canvas id="canvasOne" width="200" height="200"></canvas>
+</div>
+<script>
+    /*
+    * 将canvas图片转换成图片，上传到服务器
+    */
+    var canvas = document.getElementById('canvasOne');
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'red';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    //添加外网图片
+    var img = new Image();
+    //设置图片跨域访问
+    //img.setAttribute('crossOrigin', 'anonymous');
+    img.onload = function () {
+        //画图
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+        var data = canvas.toDataURL('image/jpeg');
+        alert(data);
+    }
+    //使用外网图片
+    img.src = 'http://www.gongjuji.net/favicon.ico';
+</script>
+</body>
+</html>

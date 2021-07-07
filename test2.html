@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var list =
+        //     "<span>dsadasdasdas</span><span>dsadasdasdas</span><span>dsadasdasdas</span><span>dsadasdasdas</span>"
+        // list = list.replace(/<.*?>/ig, "");
+        // list = list.replace(/<.*?>/ig, "");
+        // console.log(list)
+        // var s =
+        //     '<p>afef</p><p>afef</p><p>afef</p><p>afef</p><p>afef</p><p>afef</p>dasdasdsadasd<span>dsadasdasdas</span><span>dsadasdasdas</span><span>dsadasdasdas</span><span>dsadasdasdas</span>';
+
+        var s =
+            '<p><span style: \"font-weight: bold; font-style: italic; text-decoration-line: underline line-through; color:rgb(194, 79, 74); background-color: rgb(139, 170, 74);\">nihao</span></p><p><br></p>'
+
+        // s = s.replace(/<\/?p[^>]*>/gi, '')
+        // s = s.replace(/<\/?p[^>]?>/g, '')
+        s = s.replace("<p", "<div").replace("<\/p>", "<\/div>")
+        alert(s)
+        var data = '123123,213,12312,312,3,Cat,cat,dsfsdfs,';
+        var reCat = /cat/gi;
+        console.log(data.replace(reCat, ''))
+    </script>
+</body>
+
+</html>

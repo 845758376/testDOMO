@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        div {
+            width: 100px;
+            height: 80px;
+            background: blue;
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: left 3s, opacity 3s;
+            -moz-transition: left 3s, opacity 3s;
+            /* Firefox 4 */
+            -webkit-transition: left 3s, opacity 3s;
+            /* Safari and Chrome */
+            -o-transition: left 3s, opacity 3s;
+            /* Opera */
+        }
+
+        div:hover {
+            left: 300px;
+            opacity: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div></div>
+
+    <p>请把鼠标指针移动到蓝色的 div 元素上，就可以看到过渡效果。</p>
+
+    <p><b>注释：</b>本例在 Internet Explorer 中无效。</p>
+    <p><span style: \"font-weight: bold; font-style: italic; text-decoration-line: underline line-through; color:
+            rgb(194, 79, 74); background-color: rgb(139, 170, 74);\">nihao</span></p>
+    <p><br></p>
+</body>
+
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>极客</title>
+    <meta charset="UTF-8" />
+    <meta name="author" content="cth" />
+    <meta name="keywords" content="贸小七 - 线上参展推荐展销工具SAAS平台 - 广交会使用入口" />
+    <meta name="description" content="贸小七 - 线上参展推荐展销工具SAAS平台 - 广交会使用入口" />
+    <meta name='viewport' content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/common-H5.css" />
+
+</head>
+
+<body>
+    <script>
+        setAdaption(7.5);
+        function setAdaption(baseFontsize) {
+            baseFontsize = baseFontsize || 7.5;
+            var docEl = document.documentElement;
+            var refresh = function () {
+                var dpr = window.devicePixelRatio,
+                    deviceWidth = docEl.getBoundingClientRect().width, //获得屏幕宽度
+                    deviceFontsize = deviceWidth / baseFontsize + "px"; //计算rem基准值
+                docEl.setAttribute('data-dpr', dpr);
+                docEl.style.fontSize = deviceFontsize; //设置rem基准值
+            };
+            window.addEventListener('pageshow', function (e) {
+                if (!e.pretersised) {
+                    refresh();
+                }
+            }, false);
+            window.addEventListener('resize', function () {
+                refresh();
+            }, false);
+        }
+    </script>
+    <!--加载图-->
+    <div class="spin-container">
+        <div class="spinner">
+            <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="Regist"> -->
+        <!-- <div class="Logo" style="text-align:center;margin-bottom:60px;">
+            <a><img style="display:inline-block;max-width:200px;" src="./img/logo/Orange.png"
+                    class="img-responsive"></a>
+
+        </div> -->
+        <!-- <div class="HiddenInput">
+            <input type="text" name="name" value="">
+            <input type="password" name="name" value="">
+        </div> -->
+        <div class="RegistContent">
+            <div style="margin:0.6rem 0 0.81rem 0;">
+                <div class="RegistTitle">完善信息后</div>
+                <div class="RegistTitle">为您开通账号体验产品功能</div>
+            </div>
+            <div class="EachInputBlock">
+                <label for="phones">联系方式 <span style="color:#f56172">*</span></label>
+                <div class="inputContent">
+                    <input id="phones" type="number" class="RegisterText phones" placeholder="请输入您的手机号码"
+                        autofocus="autofocus" autocomplete="off">
+                </div>
+                <span class="phonesErrorRemind"><i class="iconfont">X</i> 手机号码格式不正确</span>
+            </div>
+            <div class="EachInputBlock">
+                <label for="email">邮箱 <span style="color:#f56172">*</span></label>
+                <div class="inputContent">
+                    <input id="email" type="text" class="RegisterText email" placeholder="请输入您的邮箱" autocomplete="off"
+                        readonly="" onfocus="this.removeAttribute('readonly');">
+                </div>
+                <span class="emailErrorRemind"><i class="iconfont">X</i> 邮箱格式不正确</span>
+            </div>
+            <div class="EachInputBlock">
+                <label for="name">姓名 <span style="color:#f56172">*</span></label>
+                <div class="inputContent">
+                    <input id="name" type="text" class="RegisterText name" placeholder="请输入您的姓名" autocomplete="off"
+                        readonly="" onfocus="this.removeAttribute('readonly');">
+                </div>
+            </div>
+            <div class="EachInputBlock">
+                <label for="conpany">公司名称 <span style="color:#f56172">*</span></label>
+                <div class="inputContent">
+                    <input type="text" name="PhoneNumber" value="" style="display:none;">
+                    <input id="conpany" type="conpany" class="RegisterText conpany" placeholder="请输入您的公司名称"
+                        autocomplete="off">
+                </div>
+            </div>
+            <div class="EachInputBlock">
+                <label for="position">职位&nbsp;&nbsp;</label>
+                <div class="inputContent">
+                    <input type="text" name="PhoneNumber" value="" style="display:none;">
+                    <input id="position" type="position" class="RegisterText position" placeholder="请输入您的职位"
+                        autocomplete="off">
+                </div>
+            </div>
+            <button class="RegisterBtn" type="button" style="background:orange;">立即提交</button>
+        </div>
+
+
+    <!-- </div> -->
+    <script src="./js/jquery-min.js"></script>
+    <script>
+        var mail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        var tel = /^(\(\d{3,4}\)|\d{3,4}-)?\d{7,8}$/;
+        var phone = /^1[34578]\d{9}$/
+        $('#phones').blur(function () {
+            var tjPhone = $('#phones').val();
+            console.log(tjPhone)
+            if (tjPhone.match(phone) == null) {
+                console.log('手机号码不正确！')
+                $('.phonesErrorRemind').show()
+            } else {
+                console.log('手机号码正确！')
+                $('.phonesErrorRemind').hide()
+            }
+        });
+        $('#email').blur(function () {
+            var tjEmail = $('#email').val();
+            console.log(tjEmail)
+            if (tjEmail.match(mail) == null) {
+                console.log('邮箱不正确！')
+                $('.emailErrorRemind').show()
+            } else {
+                console.log('邮箱正确！')
+                $('.emailErrorRemind').hide()
+            }
+        });
+        $('.RegisterBtn').hover(function () {
+            var tjPhone = $('#phones').val();
+            var tjEmail = $('#email').val();
+            var tjName = $('#name').val();
+            var tjConpany = $('#conpany').val();
+            var tjPosition = $('#position').val();
+            if (tjPhone && tjEmail && tjName && tjConpany) {
+                console.log('给')
+                $('.RegisterBtn').css('cursor', 'pointer')
+            } else {
+                console.log('不给')
+                $('.RegisterBtn').css('cursor', 'no-drop')
+            }
+        })
+        $('.RegisterBtn').click(function () {
+            var tjPhone = $('#phones').val();
+            var tjEmail = $('#email').val();
+            var tjName = $('#name').val();
+            var tjConpany = $('#conpany').val();
+            var tjPosition = $('#position').val();
+            if (tjPhone.match(phone) == null) {
+                $('.phoneErrorRemind').show()
+                return false
+            }
+            if (tjEmail.match(mail) == null) {
+                $('.emailErrorRemind').show()
+                return false
+            }
+            if (tjPhone && tjEmail && tjName && tjConpany) {
+                var data={
+                    telephone:tjPhone,
+                    name:tjName,
+                    company:tjConpany,
+                    email:tjEmail,
+                }
+                $(".spin-container").show();
+                $.ajax({
+                    type: "post",
+                    url: 'https://cloudapi.jkyingxiao.com/base/apply',
+                    data: JSON.stringify(data),
+                    success: function (str) {
+                        
+                        $(".spin-container").hide();
+                        console.log(str.data.status)
+                        if(str.data.status){
+                            $('#phones').val('');
+                            $('#email').val('');
+                            $('#name').val('');
+                            $('#conpany').val('');
+                            $('#position').val('');
+                            alert('提交成功！请耐心等待，我们会免费为您开通账号体验产品功能')
+
+                        }
+                        if(Number(str.code)>0){
+                            alert(str.msg)
+                        }
+                    },
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

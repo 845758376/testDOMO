@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="./css/swiper.min.css">
+
+  <!-- Demo styles -->
+  <style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+                <!-- <div class="text3">为每一家企业提供专属直播间，加速企业营销、获客</div> -->
+                <div class="content1-img have-active swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="item pointer" style="border-radius: 10px 0 0 0;">
+                              
+                                <div class="itemimg">
+                                <img  style="border-radius:10px 0 0 0;" src="./img/Photo/2.无法筛选优质客户线索 (1).png">
+                                </div>
+                                <div class="text1">找线索耗时长</div>
+                                <div class="text2">每天用在寻找客户线索占据40%的工作时长</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="item pointer" style="border-left:1px solid #d7d7d7;">
+                                <div class="itemimg">
+                                <img style="border-radius: 0 10px 0 0;" src="./img/Photo/2.无法筛选优质客户线索 (2).png">
+                                </div>
+                                <div class="text1">无法筛选优质客户线索</div>
+                                <div class="text2">过时和无效的销售线索占80%。无法过滤优质客户</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="item pointer swiper-slide">
+                                <div class="itemimg">
+                                <img src="./img/Photo/3.获取渠道单一.png">
+                                </div> 
+                                <div class="text1">获取渠道单一</div>
+                                <div class="text2">局限线下展会、推广宣传获客不稳定、数量少</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="item pointer swiper-slide" style="margin-right:0px ;">
+                                <div class="itemimg">
+                                <img src="./img/Photo/4.无法邀约线上面谈.png">
+                                </div>
+                                <div class="text1">无法邀约线上面谈</div>
+                                <div class="text2">过度消耗时间在拜访客户的途中，无法及时邀约客户面谈</div>
+                            </div>
+                        </div>
+                        <span  class="swiper-button-next"><img src="./img/black.png"></span>
+                        <span  class="swiper-button-prev"><img src="./img/gray.png"></span>
+                    </div>
+                </div>
+  <!-- Swiper -->
+  <div style="position: relative;">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+        <div class="swiper-slide">Slide 7</div>
+        <div class="swiper-slide">Slide 8</div>
+        <div class="swiper-slide">Slide 9</div>
+        <div class="swiper-slide">Slide 10</div>
+      </div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+
+
+  <!-- Swiper JS -->
+  <script src="./js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView : 2,  
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json数据导出为txt文件</title>
+</head>
+<body>
+    <button id="b1">导出</button>
+</body>
+</html>
+<!-- <script type="text/javascript" src="../../jquery-1.11.3.min.js"></script> -->
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+    var exportResultData=[{年: 1990, 月: 1, 数据: 2.1},
+                            {年: 1990, 月: 2, 数据: 3.2},
+                            {年: 1990, 月: 3, 数据: 4.3},
+                            {年: 1990, 月: 4, 数据: 5.4},
+                            {年: 1990, 月: 5, 数据: 6.5},
+                            {年: 1990, 月: 6, 数据: 7.6},
+                            {年: 1990, 月: 7, 数据: 8.7},
+                            {年: 1990, 月: 8, 数据: 9.8},
+                            {年: 1990, 月: 9, 数据: 10.9},
+                            {年: 1990, 月: 10, 数据: 12}]
+    //导出结果
+function exportResult() {
+    var text = "年,月,数据"+ " \r\n";
+    $.each(exportResultData, function(index, val) {
+             text += val["年"]+","+val["月"]+","+val["数据"]+ " \r\n";
+    });
+    
+    // 下载文件方法
+    var funDownload = function (content, filename) {
+        var eleLink = document.createElement('a');
+        eleLink.download = filename;
+        eleLink.style.display = 'none';
+        // 字符内容转变成blob地址
+        var blob = new Blob([content]);
+        eleLink.href = URL.createObjectURL(blob);
+        // 触发点击
+        document.body.appendChild(eleLink);
+        eleLink.click();
+        // 然后移除
+        document.body.removeChild(eleLink);
+    };
+    if ('download' in document.createElement('a')) {
+            funDownload(text, '导出结果.txt');    
+    } else {
+            alert('浏览器不支持');    
+    }
+    document.getElementById(elementID).remove();
+}
+$('#b1').click(function(event) {
+        exportResult()
+    });
+</script>
